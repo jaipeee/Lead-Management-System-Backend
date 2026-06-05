@@ -32,7 +32,7 @@ async function requireAuth(req, res, next) {
             })
         }
 
-        const decoded = jwt.verify(token, process.env.JWT_TOKEN)
+        const decoded = await jwt.verify(token, process.env.JWT_TOKEN)
         req.user = decoded
         next()
     } catch (error) {
